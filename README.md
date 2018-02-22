@@ -10,6 +10,12 @@
 npm i sypent
 ```
 
+And include the library.
+
+```html
+<script src="sypent.min.js"></script>
+```
+
 ## Why sypent?
 
 sypent is awesome because it's simple and so useful.

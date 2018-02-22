@@ -1,4 +1,6 @@
 const sy = (tag, attribs, children) => {
+	if (!tag) throw new Error('Missing tag argument.')
+
 	let gen = document.createElement(tag)
 
 	if (attribs) Object.keys(attribs).forEach((attrib) => gen.setAttribute(attrib, attribs[attrib]))
