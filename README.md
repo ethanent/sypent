@@ -1,4 +1,4 @@
-<p align="center" style="text-align: center"><img src="https://raw.githubusercontent.com/ethanent/sypent/master/media/logo-core.png" width="250" alt="sypent logo"/></p>
+<p align="center" style="text-align: center"><img src="https://raw.githubusercontent.com/ethanent/sypent/master/media/logo-core.png" width="500" alt="sypent logo"/></p>
 
 > Ultra-light JS DOM manipulation library
 
