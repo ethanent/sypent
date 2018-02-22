@@ -1,0 +1,33 @@
+{
+  "name": "sypent",
+  "version": "1.0.0",
+  "description": "Ultra-light JS DOM creation library",
+  "main": "sypent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "npx babel sypent.js --out-file sypent.min.js --preset env --minified --no-comments"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanent/sypent.git"
+  },
+  "keywords": [
+    "dom",
+    "js",
+    "javascript",
+    "web",
+    "library",
+    "framework"
+  ],
+  "author": "Ethan Davis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethanent/sypent/issues"
+  },
+  "homepage": "https://github.com/ethanent/sypent#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40"
+  }
+}
