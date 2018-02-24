@@ -1,7 +1,12 @@
-let gen = sy('div', {'class': 'test', 'id': 'someDiv'}, [
-	sy('img', {'src': 'https://ethanent.me/images/smaller-icon.png'}),
-	sy('br'),
-	'Text test!'
-])
+const {div, img, br} = sy
 
-document.querySelector('#appendToMe').appendChild(gen)
+const generated = div({
+   class: 'test',
+   id: 'someDiv'
+},
+   img({src: 'https://ethanent.me/images/smaller-icon.png'}),
+   br(),
+   'Text test!'
+)
+
+document.querySelector('#appendToMe').appendChild(generated)
