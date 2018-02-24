@@ -27,20 +27,26 @@ It's also very lightweight. Like &lt;0.5K unminified lightweight.
 Let's create a `div` with class 'message' with a text node child.
 
 ```js
-let addDiv = sy('div', {'class': 'message'}, ['This is a text node.'])
+const msg = sy('div', {'class': 'message'}, 'This is a text node.')
 ```
 
 Now let's create a `p` tag with text nested inside of a div.
 
 ```js
-let complex = sy('div', {}, [
-	sy('p', {}, ['Hey there.'])
-])
+const {p, div} = sy
+
+const complex = div(
+	p('Hey there.')
+)
 ```
 
 ## In detail
 
-sy(String `tagName`, ?Object `attributes`, ?Array[HTMLElement | String | DocumentFragment] `children`)
+sy(String `tagName`, ?Object `attributes`, ?Node/String `...children`)     
+
+or    
+
+sy.tagName(?Object `attributes`, ?Node/String `...children`)   
 
 `tagName` - Tag of generated element.
 
