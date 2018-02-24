@@ -1,11 +1,32 @@
-const sy = (tag, attribs, children) => {
-	if (!tag) throw new Error('Missing tag argument.')
+{
+	const isStr = o => typeof o === 'string'
+	const isNode = o => o instanceof Node
 
-	let gen = document.createElement(tag)
+	var sy = new Proxy((tag, attribs, ...children) => {
+		if (!tag) throw new Error('Missing tag argument.')
 
-	if (attribs) Object.keys(attribs).forEach((attrib) => gen.setAttribute(attrib, attribs[attrib]))
+		const el = document.createElement(tag)
 
-	if (children) children.forEach((child) => child !== null ? gen.appendChild(typeof child === 'string' ? document.createTextNode(child) : child) : null)
+		if (isNode(attribs) || isStr(attribs)) children.unshift(attribs)	
+		else if (attribs) {
+			for (const key in attribs) {
+				const val = attribs[key]
+				if (key in el) el[key] = val
+				else if (isStr(val)) {
+					el.setAttribute(key, val)
+				} else {
+					Object.defineProperty(el, key, Object.getOwnPropertyDescriptor(attribs, key))
+				}
+			}
+		}
 
-	return gen
+		children.length && children.forEach(child => {
+			el.appendChild(isNode(child) ? child : new Text(child))
+		})
+
+		return el
+	}, {
+		get: (fn, key) => fn.bind(null, key)
+	})
 }
+
